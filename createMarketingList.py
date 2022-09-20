@@ -23,32 +23,73 @@
 
 import csv
 
-# open the vendorlist file
+# open the vendorlist file; 
+# file_object = open(filename, mode)
+#import csv
 
+infile = open('VendorList.csv','r')
+outfile = open('marketinglistFINAL.csv' , 'w')
 
+csvfile = csv.reader(infile, delimiter=',')
 # create a csv object from the file object
+next(csvfile)
 
+outfile.write('Name, Email, Phone\n')
+for record in csvfile:
+    full_name = record[1] + " " + record[2]
+    email_address = record[4]
+    phone_number = record[5]
 
 # create an output file
+    outfile.write(full_name + ',' + email_address + ',' + phone_number + '\n')
 
-
+outfile.close()
 
 
 
 # create an empty dictionary
-
+Customers = {}
 
 
 # iterate through the csv object
+for key in Customers:
+    print(full_name)
+    print(customers[full_name])
+
+for value in customers.values():
+    print(email_address)
+    print(phone_number)
 
 
-
-
-    # add the key-value pair to the dictionary
+    # add the key-value pair to the dictionary #name and email
 
 
 
 # print the dictionary after the loop is finished
+#def main():
+
+    #import csv
+
+    #infile = open("EmployeePay.csv",'r')
+
+    #csvfile = csv.reader(infile, delimiter=',')
+
+    #next(csvfile)
+
+    #for record in csvfile:
+        #print("ID: ", record[0])
+        #print("First name: ", record[1])
+       # print("Last Name: ", record[2])
+        #salary = (float(record[3])) * float(record[4]) + float(record[3])
+        #print('Total Pay: ', '$' ,format(salary, ',.2f'),sep = '')
+        #input('Press enter for next employee')
+    
+#main()
+
+for email in Customers['email']:
+    print(email)
+    
+
 
 
 
@@ -58,3 +99,7 @@ import csv
 
 # close your output file
 
+for x in Customers['info']:
+  outfile.write(str(x['name'])+','+x['email']+','+str(x['phone'])+'\n')
+
+outfile.close()
