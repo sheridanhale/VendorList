@@ -48,24 +48,23 @@ outfile.close()
 
 
 # create an empty dictionary
-Customers = {}
+contactinfo = {}
 
 
 # iterate through the csv object
-for key in Customers:
-    print(full_name)
-    print(customers[full_name])
+for rec in csvfile:
+    fullname = rec[1] + ' ' + rec[2]
+    emailaddress = rec[4]
+    phonenumber = rec[5]
 
-for value in customers.values():
-    print(email_address)
-    print(phone_number)
 
 
     # add the key-value pair to the dictionary #name and email
-
+    contactinfo[fullname] = {'email': emailaddress, 'phone': phonenumber}
 
 
 # print the dictionary after the loop is finished
+print(contactinfo)
 #def main():
 
     #import csv
@@ -86,20 +85,13 @@ for value in customers.values():
     
 #main()
 
-for email in Customers['email']:
-    print(email)
-    
-
-
 
 
 # iternate through the dictionary and write to the output file
 
-
+for key in contactinfo:
+    outfile.write(key+","+contactinfo[key]['email']+','+contactinfo[key]['phone']+'\n')
 
 # close your output file
-
-for x in Customers['info']:
-  outfile.write(str(x['name'])+','+x['email']+','+str(x['phone'])+'\n')
 
 outfile.close()
